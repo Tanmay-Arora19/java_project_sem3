@@ -142,6 +142,7 @@ An exact copy is maintained in `students_backup.txt` when option 8 is selected o
 - **Course:** B.Tech CSE (AI & ML), 3rd Semester
 - **Subject:** Java Programming
 - **Institution:** Chitkara University, Punjab
+- **Faculty Guide:** Rohit Sharma
 
 **Team Members:**
 1. **Vishal** (Roll No: 2510992990) – Student Data Management
