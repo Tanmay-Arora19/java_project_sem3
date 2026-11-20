@@ -39,11 +39,14 @@ Developed as a Semester 3 Core Java and Object-Oriented Programming (OOP) projec
 
 ```text
 java_project_sem3/
-├── StudentPerformanceAnalytics.java   # Main application source code
-├── README.md                          # Project documentation
-├── .gitignore                         # Git ignore configuration
-├── run.bat                            # Windows one-click build and run script
-└── run.sh                             # Linux / macOS shell execution script
+├── StudentPerformanceAnalytics.java            # Main application source code
+├── README.md                                   # Project documentation
+├── .gitignore                                  # Git ignore configuration
+├── run.bat                                     # Windows one-click build and run script
+├── run.sh                                      # Linux / macOS shell execution script
+├── Student_Performance_Analytics_Presentation.pptx # 15-slide PowerPoint Presentation
+├── presentation.html                           # Interactive browser slide viewer & presentation mode
+└── generate_pptx.js                            # Presentation generator script (PptxGenJS)
 ```
 
 ---
@@ -134,7 +137,15 @@ An exact copy is maintained in `students_backup.txt` when option 8 is selected o
 
 ---
 
-## Author
+## Project Team & Credits
 
-Developed by **Tanmay Arora**  
-GitHub: [@Tanmay-Arora19](https://github.com/Tanmay-Arora19)
+- **Course:** B.Tech CSE (AI & ML), 3rd Semester
+- **Subject:** Java Programming
+- **Institution:** Chitkara University, Punjab
+
+**Team Members:**
+1. **Vishal** (Roll No: 2510992990) – Student Data Management
+2. **Jaskaran Singh** (Roll No: 2510993488) – Student Registration & Record Management
+3. **Ansh Arora** (Roll No: 2510992560) – Performance Analysis & Ranking
+4. **Tanmay Arora** (Roll No: 2510993577) – Main Program, File I/O & System Integration
+   - GitHub: [@Tanmay-Arora19](https://github.com/Tanmay-Arora19)
