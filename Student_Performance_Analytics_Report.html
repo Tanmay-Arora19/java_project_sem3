@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analytics Tool - Academic Project Report</title>
+    <style>
+        :root {
+            --primary: #0B2545;
+            --secondary: #134074;
+            --accent: #0077B6;
+            --chitkara-red: #C5221F;
+            --dark: #0F172A;
+            --body-text: #2D3748;
+            --border: #CBD5E1;
+            --light-bg: #F8FAFC;
+            --code-bg: #1E293B;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, Georgia, serif;
+            color: var(--body-text);
+            line-height: 1.7;
+            background: #E2E8F0;
+            padding: 40px 15px;
+        }
+
+        /* Floating Actions Bar */
+        .floating-bar {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--primary);
+            color: #FFFFFF;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 15px rgba(11,37,69,0.3);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-action:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,119,182,0.4);
+            color: #FFFFFF;
+        }
+
+        .btn-action.btn-secondary {
+            background: #0284C7;
+        }
+
+        .btn-action.btn-secondary:hover {
+            background: #0369A1;
+        }
+
+        /* Main Report Container */
+        .report-page {
+            background: #FFFFFF;
+            max-width: 920px;
+            margin: 0 auto 35px auto;
+            padding: 70px 85px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: "Times New Roman", Times, serif;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        h1.chapter-title {
+            font-size: 22pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            text-align: left;
+        }
+
+        h2.section-title {
+            font-size: 15pt;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--secondary);
+            text-align: left;
+        }
+
+        h3.subsection-title {
+            font-size: 13pt;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #334155;
+            text-align: left;
+        }
+
+        p {
+            font-size: 12pt;
+            text-align: justify;
+            margin-bottom: 14px;
+            line-height: 1.65;
+        }
+
+        ul, ol {
+            margin-left: 28px;
+            margin-bottom: 16px;
+            font-size: 12pt;
+        }
+
+        li {
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+
+        /* Cover Page Styling */
+        .cover-container {
+            text-align: center;
+            padding: 40px 10px;
+            border: 3px double var(--primary);
+            border-radius: 6px;
+            min-height: 980px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .univ-header {
+            font-size: 20pt;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .univ-sub {
+            font-size: 12pt;
+            color: #475569;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-academic {
+            margin: 25px auto;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0B2545, #0077B6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 38px;
+            box-shadow: 0 4px 15px rgba(0,119,182,0.3);
+        }
+
+        .report-label {
+            font-size: 13pt;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #64748B;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .project-title {
+            font-size: 24pt;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 15px 0;
+            text-transform: uppercase;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+        }
+
+        .degree-fulfillment {
+            font-size: 11pt;
+            font-style: italic;
+            color: #475569;
+            margin: 15px 0 25px 0;
+            line-height: 1.5;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 35px;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .meta-box h4 {
+            font-size: 12pt;
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--accent);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .meta-box p {
+            font-size: 11pt;
+            margin-bottom: 4px;
+            text-align: left;
+            line-height: 1.45;
+        }
+
+        .cover-footer {
+            margin-top: 40px;
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            border-top: 1px solid #CBD5E1;
+            padding-top: 15px;
+        }
+
+        /* Certificate and Tables */
+        .cert-box {
+            border: 1.5px solid #CBD5E1;
+            padding: 30px 40px;
+            background: #FAFBFD;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .sig-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .sig-col {
+            padding: 0 20px;
+        }
+
+        .sig-line {
+            border-top: 1px solid #334155;
+            margin-bottom: 6px;
+        }
+
+        .sig-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .sig-sub {
+            font-size: 10pt;
+            color: #64748B;
+        }
+
+        /* Custom Tables */
+        table.academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 25px 0;
+            font-size: 11pt;
+        }
+
+        table.academic-table th {
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 10px 12px;
+            font-weight: bold;
+            text-align: left;
+            border: 1px solid var(--primary);
+        }
+
+        table.academic-table td {
+            padding: 9px 12px;
+            border: 1px solid #CBD5E1;
+            vertical-align: top;
+        }
+
+        table.academic-table tr:nth-child(even) {
+            background: #F8FAFC;
+        }
+
+        /* Figures */
+        .figure-box {
+            text-align: center;
+            margin: 25px 0 30px 0;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .figure-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #CBD5E1;
+        }
+
+        .figure-caption {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-top: 10px;
+        }
+
+        .figure-sub {
+            font-size: 10pt;
+            font-style: italic;
+            color: #64748B;
+            margin-top: 2px;
+        }
+
+        /* Callout Boxes */
+        .callout-box {
+            background: #F0F9FF;
+            border-left: 4px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: 0 4px 4px 0;
+            margin: 18px 0;
+            font-size: 11pt;
+        }
+
+        .callout-box strong {
+            color: var(--primary);
+        }
+
+        /* Code Blocks */
+        pre.code-snippet {
+            background: var(--code-bg);
+            color: #E2E8F0;
+            padding: 16px 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10pt;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin: 16px 0;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Page Breaks for Printing */
+        @media print {
+            body {
+                background: #FFFFFF;
+                padding: 0;
+            }
+            .floating-bar {
+                display: none !important;
+            }
+            .report-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 40px 45px;
+                max-width: 100%;
+                border-radius: 0;
+                page-break-after: always;
+            }
+            .cover-container {
+                min-height: 95vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Actions Bar -->
+    <div class="floating-bar">
+        <a href="javascript:window.print()" class="btn-action">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/></svg>
+            Print / Save as PDF
+        </a>
+        <a href="Student_Performance_Analytics_Report.docx" download class="btn-action btn-secondary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+            Download Word Doc (.docx)
+        </a>
+        <a href="https://github.com/Tanmay-Arora19/java_project_sem3" target="_blank" class="btn-action" style="background:#24292F;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Repo
+        </a>
+    </div>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="report-page">
+        <div class="cover-container">
+            <div>
+                <div class="univ-header">Chitkara University</div>
+                <div class="univ-sub">Department of Computer Science & Engineering</div>
+                <div class="univ-sub" style="color:var(--accent); font-weight: bold; margin-top: 2px;">Specialization: Artificial Intelligence & Machine Learning</div>
+                
+                <div class="badge-academic">🎓</div>
+                
+                <div class="report-label">Project Report On</div>
+                <div class="project-title">Student Performance Analytics Tool</div>
+                <div style="font-size: 13pt; color: #475569; font-weight: 600;">An Object-Oriented Java Terminal Platform for Academic Analytics & Merit Evaluation</div>
+                
+                <div class="degree-fulfillment">
+                    Submitted in partial fulfillment of the academic requirements for the completion of<br>
+                    <strong>Java Programming Laboratory (Course Code: 23CS105)</strong><br>
+                    Bachelor of Technology in Computer Science & Engineering (AI & ML) — 3rd Semester
+                </div>
+            </div>
+
+            <div>
+                <div class="meta-grid">
+                    <div class="meta-box">
+                        <h4>Submitted By:</h4>
+                        <p><strong>1. Tanmay Arora</strong> (Roll No: 2510993577)</p>
+                        <p><strong>2. Ansh Arora</strong> (Roll No: 2510992560)</p>
+                        <p><strong>3. Jaskaran Singh Bhinder</strong> (Roll No: 2510993488)</p>
+                        <p><strong>4. Vishal</strong> (Roll No: 2510992990)</p>
+                    </div>
+                    <div class="meta-box">
+                        <h4>Under the Guidance of:</h4>
+                        <p><strong>Mr. Rohit Sharma</strong></p>
+                        <p>Faculty Guide & Assistant Professor</p>
+                        <p>Department of Computer Science & Engineering</p>
+                        <p>Chitkara University, Punjab</p>
+                    </div>
+                </div>
+
+                <div class="cover-footer">
+                    Chitkara University Institute of Engineering & Technology, Punjab<br>
+                    <span style="font-size:10pt; font-weight:normal; color:#64748B;">Academic Session: 2026–2027 | Submitted on: November 2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: BONAFIDE CERTIFICATE -->
+    <div class="report-page">
+        <h1 class="chapter-title" style="text-align: center; border: none; margin-bottom: 30px;">Bonafide Certificate</h1>
+        
+        <div class="cert-box">
+            <p style="font-size: 12pt; line-height: 1.8; text-indent: 40px;">
+                This is to certify that the project entitled <strong>"Student Performance Analytics Tool"</strong> submitted by <strong>Tanmay Arora (Roll No: 2510993577)</strong>, <strong>Ansh Arora (Roll No: 2510992560)</strong>, <strong>Jaskaran Singh Bhinder (Roll No: 2510993488)</strong>, and <strong>Vishal (Roll No: 2510992990)</strong> in partial fulfillment of the requirements for the award of the degree of <strong>Bachelor of Technology in Computer Science & Engineering (AI & ML)</strong> at <strong>Chitkara University, Punjab</strong>, is an authentic record of bonafide work carried out by them under my supervision and guidance.
+            </p>
+            <p style="font-size: 12pt; line-height: 1.8; text-indent: 40px; margin-top: 15px;">
+                To the best of my knowledge and belief, the matter presented in this report has not been submitted elsewhere for the award of any other degree, diploma, or academic certificate.
+            </p>
+
+            <div class="sig-grid">
+                <div class="sig-col">
+                    <div class="sig-line"></div>
+                    <div class="sig-title">Mr. Rohit Sharma</div>
+                    <div class="sig-sub">Faculty Guide & Assistant Professor</div>
+                    <div class="sig-sub">Department of CSE (AI/ML)</div>
+                    <div class="sig-sub">Chitkara University, Punjab</div>
+                </div>
+                <div class="sig-col">
+                    <div class="sig-line"></div>
+                    <div class="sig-title">Head of Department</div>
+                    <div class="sig-sub">Department of Computer Science & Engineering</div>
+                    <div class="sig-sub">Chitkara University, Punjab</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <p><strong>Place:</strong> Chitkara University, Rajpura, Punjab</p>
+            <p><strong>Date:</strong> November 20, 2026</p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: ACKNOWLEDGEMENT -->
+    <div class="report-page">
+        <h1 class="chapter-title" style="text-align: center; border: none; margin-bottom: 25px;">Acknowledgement</h1>
+        
+        <p>
+            We take this opportunity to express our profound gratitude and deep regards to our esteemed guide, <strong>Mr. Rohit Sharma</strong>, Department of Computer Science & Engineering, Chitkara University, for his exemplary guidance, continuous encouragement, and valuable technical insights throughout the design, development, and testing of the <em>Student Performance Analytics Tool</em>. His constructive feedback was pivotal in refining our object-oriented architecture and ensuring robust error handling.
+        </p>
+
+        <p>
+            We also express our sincere appreciation to the <strong>Department of Computer Science & Engineering</strong> and the academic administration of <strong>Chitkara University</strong> for providing state-of-the-art computational infrastructure, laboratories, and an enriching academic atmosphere conducive to practical engineering learning.
+        </p>
+
+        <p>
+            Special thanks are due to our classmates, friends, and family whose unwavering moral support, feedback, and cooperation greatly contributed to the timely and successful completion of this project.
+        </p>
+
+        <h3 class="subsection-title" style="margin-top: 30px;">Team Contribution Matrix</h3>
+        <table class="academic-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Team Member</th>
+                    <th style="width: 20%;">Roll Number</th>
+                    <th style="width: 45%;">Assigned Modules & Technical Responsibilities</th>
+                    <th style="width: 10%;">Share</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tanmay Arora</strong></td>
+                    <td>2510993577</td>
+                    <td>Main Console Engine, Switch-Case Navigation, File I/O Persistence (<code>FileWriter</code>/<code>BufferedReader</code>), Binary Backup (<code>FileOutputStream</code>), Background Daemon Threading, System Integration & Build.</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Ansh Arora</strong></td>
+                    <td>2510992560</td>
+                    <td>Student Merit Ranking Engine, Multi-Key Java <code>Comparator</code> (Percentage Descending + Name Ascending), Stream API Subject Aggregators, Class Average & Grade Distribution Analytics.</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Jaskaran Singh Bhinder</strong></td>
+                    <td>2510993488</td>
+                    <td>Dynamic Subject Configuration, Student Registration Pipeline, Marks Range Validation (0–100), Duplicate Roll Number Prevention, Custom Checked Exception (<code>InvalidMarksException</code>).</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td><strong>Vishal</strong></td>
+                    <td>2510992990</td>
+                    <td>Student Data Model, Encapsulation with Private Fields & Defensive Getters, Dynamic Aggregate Calculators (Total, Percentage, Grade Scale), Best/Weakest Subject Finder, <code>Reportable</code> Interface Implementation.</td>
+                    <td>25%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 4: ABSTRACT & TOC -->
+    <div class="report-page">
+        <h1 class="chapter-title" style="text-align: center; border: none; margin-bottom: 25px;">Abstract</h1>
+        
+        <p>
+            In modern educational institutions, evaluating student academic performance, computing cumulative statistics, and generating transparent merit lists are crucial yet labor-intensive responsibilities. Traditional manual record books and fragmented spreadsheets frequently introduce human calculation errors, lack data integrity safeguards, and fail to provide immediate, actionable analytical insights to educators.
+        </p>
+
+        <p>
+            This project presents the <strong>Student Performance Analytics Tool</strong>, an enterprise-grade terminal-based academic evaluation software engineered in <strong>Core Java (JDK 21)</strong>. The system streamlines student data registration, dynamic multi-subject configuration, automatic percentage and letter-grade assignment, multi-tier merit ranking via Java <code>Comparator</code>, subject-wise extrema analytics, and overall class performance distribution using the <strong>Java Stream API</strong>.
+        </p>
+
+        <p>
+            To guarantee data durability, the application features an integrated dual-layer file persistence architecture: clean character-based text storage (<code>students.txt</code>) for human-readable auditability, coupled with an asynchronous low-level binary backup mechanism (<code>students_backup.txt</code>) powered by <code>FileInputStream</code> and <code>FileOutputStream</code>. Furthermore, background thread notifications provide non-blocking visual feedback upon successful registration. The application strictly follows Object-Oriented Programming (OOP) paradigms including Encapsulation, Interface Abstraction, Generic Utility Methods, and Custom Checked Exception Handling (<code>InvalidMarksException</code>). The end product provides educators with an instantaneous, offline, zero-dependency academic intelligence workstation.
+        </p>
+
+        <h1 class="chapter-title" style="margin-top: 35px; border: none; border-bottom: 1.5px solid var(--accent); padding-bottom: 5px;">Table of Contents</h1>
+        <table class="academic-table" style="font-size: 11pt;">
+            <tbody>
+                <tr><td><strong>1. Introduction</strong> (Background, Problem Statement, Objectives, Scope)</td><td style="text-align: right;">Page 5</td></tr>
+                <tr><td><strong>2. Literature Review & Existing Systems</strong> (Registers, Spreadsheets, Architectural Gap)</td><td style="text-align: right;">Page 6</td></tr>
+                <tr><td><strong>3. System Requirements</strong> (Hardware, Software, Technology Stack)</td><td style="text-align: right;">Page 7</td></tr>
+                <tr><td><strong>4. System Design & Architecture</strong> (Architecture Diagram, OOP Principles, Data Structures)</td><td style="text-align: right;">Page 8</td></tr>
+                <tr><td><strong>5. Module-Wise Description & Terminal Outputs</strong> (With Figures 5.1 – 5.9)</td><td style="text-align: right;">Page 10</td></tr>
+                <tr><td><strong>6. Implementation Details</strong> (Formulas, Grading Scale, Core Java Source Code)</td><td style="text-align: right;">Page 16</td></tr>
+                <tr><td><strong>7. Testing & Verification</strong> (Comprehensive Test Matrix & Edge Cases)</td><td style="text-align: right;">Page 18</td></tr>
+                <tr><td><strong>8. Limitations & Future Scope</strong> (GUI, Database, Graphical Dashboards)</td><td style="text-align: right;">Page 19</td></tr>
+                <tr><td><strong>9. Conclusion</strong></td><td style="text-align: right;">Page 20</td></tr>
+                <tr><td><strong>10. References</strong></td><td style="text-align: right;">Page 20</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CHAPTER 1: INTRODUCTION -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 1: Introduction</h1>
+
+        <h2 class="section-title">1.1 Background and Motivation</h2>
+        <p>
+            Academic assessment forms the foundation of modern higher education. In university engineering programs, instructors routinely evaluate hundreds of students across diverse technical subjects including Object-Oriented Programming, Discrete Mathematics, Data Structures, and Computer Organization. Accurately tracking continuous assessment scores, determining overall percentages, categorizing students into transparent grade tiers, and identifying students needing remediation requires substantial analytical computation.
+        </p>
+        <p>
+            When educators are forced to manage marks using manual registers or static spreadsheets, significant administrative time is wasted on clerical re-entry and verification. Motivated by the need for an accurate, autonomous, and portable academic management system, the <em>Student Performance Analytics Tool</em> was designed. The system combines object-oriented rigor with instantaneous statistical computing, delivering high accuracy without the overhead of heavy enterprise databases or cloud dependencies.
+        </p>
+
+        <h2 class="section-title">1.2 Problem Statement</h2>
+        <p>
+            Traditional academic performance management in college departments suffers from critical deficiencies:
+        </p>
+        <ul>
+            <li><strong>Manual Calculation Vulnerabilities:</strong> Calculating totals, percentages, and subject averages by hand or with handheld calculators regularly results in rounding discrepancies and grading errors.</li>
+            <li><strong>Subject-Wise Invisibility:</strong> Instructors lack instantaneous insight into which specific subject registered the lowest class average or had the widest score dispersion.</li>
+            <li><strong>Ranking Complexities:</strong> Sorting dozens or hundreds of student records manually based on multiple criteria (e.g., handling identical percentage scores by lexicographical name ordering) is slow and prone to bias.</li>
+            <li><strong>Absence of Data Integrity Controls:</strong> Physical paper logs and ad-hoc spreadsheets allow accidental entry of negative numbers or scores exceeding maximum limits (e.g., entering 105 instead of 100) without input validation.</li>
+            <li><strong>Data Loss Hazards:</strong> Without automated backup pipelines, local hardware failures or inadvertent file overrides risk permanent data loss.</li>
+        </ul>
+
+        <h2 class="section-title">1.3 Objectives of the Project</h2>
+        <p>
+            The project aims to achieve the following specific software and analytical objectives:
+        </p>
+        <ol>
+            <li><strong>Dynamic Curriculum Setup:</strong> Enable instructors to define arbitrary academic subjects dynamically at runtime, removing hardcoded course constraints.</li>
+            <li><strong>Defensive Student Registration:</strong> Implement strict input sanity checks that enforce unique Roll Numbers and trap invalid scores through a dedicated <code>InvalidMarksException</code>.</li>
+            <li><strong>Autonomous Performance Analytics:</strong> Automatically calculate total marks, percentage (floating-point precision), grade tiers (A+, A, B, C, D, F), and isolate the individual student's highest and lowest performing subjects.</li>
+            <li><strong>Multi-Criteria Merit Ranking:</strong> Implement a customized Java <code>Comparator</code> capable of descending percentage sorting and alphabetical tie-breaking.</li>
+            <li><strong>Subject-Wise & Class-Level Analytics:</strong> Employ the Java <strong>Stream API</strong> to compute average, maximum, and minimum scores per subject, overall class GPA, topper identification, and pass/fail distributions.</li>
+            <li><strong>Fault-Tolerant Persistence:</strong> Engineer a dual-tier persistence engine supporting both formatted plain text records (<code>students.txt</code>) and low-level byte stream replication (<code>students_backup.txt</code>).</li>
+        </ol>
+
+        <h2 class="section-title">1.4 Scope of the Project</h2>
+        <p>
+            The software serves as a lightweight, autonomous CLI command workstation ideal for semester faculty advisors, laboratory instructors, and academic department coordinators. Built natively in Java, it executes across Windows, Linux, and macOS without requiring external runtimes, SQL databases, or network connections.
+        </p>
+    </div>
+
+    <!-- CHAPTER 2 & 3: LITERATURE REVIEW & REQUIREMENTS -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 2: Literature Review / Existing Systems</h1>
+        
+        <h2 class="section-title">2.1 Manual Paper Registers</h2>
+        <p>
+            Physical paper ledgers have historically been the universal method for recording classroom attendance and examination marks. While requiring zero electrical power, paper registers suffer from physical decay, lack searchability, and make statistical aggregation across multiple subjects virtually impossible without laborious manual recalculation.
+        </p>
+
+        <h2 class="section-title">2.2 Spreadsheets vs. Specialized Tools</h2>
+        <p>
+            Spreadsheet applications (e.g., Microsoft Excel, Google Sheets) represented a major leap forward, introducing formulas such as <code>AVERAGE()</code> and <code>RANK()</code>. However, standard spreadsheets lack domain-specific validation constraints: cells accept invalid strings in numeric columns unless elaborate data validation rules are manually authored for every single worksheet. Moreover, collaborative multi-user editing can corrupt shared workbook formulas.
+        </p>
+
+        <h2 class="section-title">2.3 The Architectural Gap and Our Java Approach</h2>
+        <p>
+            Enterprise Learning Management Systems (such as Canvas, Blackboard, or Moodle) provide full-featured grading suites but require complex server deployment, continuous internet access, high licensing fees, and extensive administrative setup. The <em>Student Performance Analytics Tool</em> fills the critical middle ground: a zero-overhead, highly performant terminal tool embodying pure object-oriented software engineering that executes on any workstation instantly.
+        </p>
+
+        <h1 class="chapter-title" style="margin-top: 35px;">Chapter 3: System Requirements</h1>
+        
+        <h2 class="section-title">3.1 Hardware Requirements</h2>
+        <table class="academic-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Hardware Component</th>
+                    <th style="width: 35%;">Minimum Specification</th>
+                    <th style="width: 35%;">Recommended Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Processor</td><td>1.6 GHz Dual-Core x86/x64</td><td>2.4 GHz Quad-Core Intel i5 / AMD Ryzen 5 or Apple Silicon</td></tr>
+                <tr><td>System Memory (RAM)</td><td>2.0 GB RAM</td><td>8.0 GB RAM or higher</td></tr>
+                <tr><td>Storage Space</td><td>50 MB free disk space</td><td>500 MB free disk space (for archives and backups)</td></tr>
+                <tr><td>Input Devices</td><td>Standard Keyboard</td><td>Keyboard & Console Display</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">3.2 Software Requirements</h2>
+        <table class="academic-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Software Component</th>
+                    <th style="width: 70%;">Specification Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Operating System</td><td>Microsoft Windows 10/11, Ubuntu 20.04+, macOS Ventura 13+</td></tr>
+                <tr><td>Java Development Kit</td><td>Oracle JDK or OpenJDK Version 17 LTS / JDK 21</td></tr>
+                <tr><td>Development IDE</td><td>Visual Studio Code, IntelliJ IDEA Community, or Eclipse IDE</td></tr>
+                <tr><td>Build & Execution Environment</td><td>Command Prompt (cmd), PowerShell, or Bash Terminal</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CHAPTER 4: SYSTEM DESIGN -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 4: System Design & Architecture</h1>
+
+        <h2 class="section-title">4.1 System Architecture and Data Flow</h2>
+        <p>
+            The software is built around a centralized modular workflow that decouples input handling, analytical calculation, in-memory data structures, and persistent storage. Figure 4.1 depicts the high-level system architecture and data progression through the application.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig4_1_architecture.png" alt="System Architecture and OOP Data Flow">
+            <div class="figure-caption">Figure 4.1: System Architecture and Object-Oriented Data Flow Diagram</div>
+            <div class="figure-sub">Illustrates user input handling, validation, core Student domain model, Stream API analytics, and dual file persistence.</div>
+        </div>
+
+        <h2 class="section-title">4.2 Object-Oriented Design Principles</h2>
+        <p>
+            The implementation adheres strictly to core Object-Oriented Programming (OOP) paradigms:
+        </p>
+        <ul>
+            <li><strong>Encapsulation:</strong> The <code>Student</code> class shields its internal state (`rollNumber`, `name`, `subjectMarks`) via private access specifiers. State mutation is restricted to constructor initialization, while read operations are facilitated through defensive getter methods.</li>
+            <li><strong>Abstraction & Interfaces:</strong> The contract for academic reporting is formalized in the <code>Reportable</code> interface, establishing a clean separation between report generation specifications and their concrete implementations.</li>
+            <li><strong>Custom Exception Handling:</strong> Input errors (such as negative marks or numbers exceeding 100) trigger the application's checked exception <code>InvalidMarksException</code>, protecting internal statistics from corrupted state.</li>
+            <li><strong>Generics:</strong> The generic method <code>displayList(List&lt;T&gt; list)</code> showcases polymorphism by displaying heterogenous lists with strict compile-time type safety.</li>
+            <li><strong>Multithreading:</strong> Background daemon threads handle user notifications, decoupling console I/O from analytical pipelines.</li>
+        </ul>
+
+        <h2 class="section-title">4.3 In-Memory Data Structures</h2>
+        <table class="academic-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Data Structure</th>
+                    <th style="width: 25%;">Target Domain</th>
+                    <th style="width: 50%;">Technical Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>ArrayList&lt;Student&gt;</code></td>
+                    <td>Student Records Roster</td>
+                    <td>Provides $O(1)$ random access by index, dynamic resizing, and native compatibility with Java Collections sorting algorithms.</td>
+                </tr>
+                <tr>
+                    <td><code>HashMap&lt;String, Double&gt;</code></td>
+                    <td>Subject-to-Score Mapping</td>
+                    <td>Provides $O(1)$ average time complexity for score lookups and allows arbitrary subject names without schema modifications.</td>
+                </tr>
+                <tr>
+                    <td><code>ArrayList&lt;String&gt;</code></td>
+                    <td>Configured Subject List</td>
+                    <td>Maintains insertion order of subject names as specified by the instructor during setup.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CHAPTER 5: MODULE-WISE DESCRIPTION (PART 1) -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 5: Module-Wise Description</h1>
+
+        <h2 class="section-title">5.1 Main Menu & Application Startup</h2>
+        <p>
+            Upon launching the program, the system presents an interactive, numbered command menu. An infinite <code>while</code> loop driven by a <code>Scanner</code> and a robust <code>switch-case</code> structure powers navigation. If previous records exist on disk (<code>students.txt</code>), the system automatically loads them into memory upon startup.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_1_main_menu.png" alt="Main Menu Interface">
+            <div class="figure-caption">Figure 5.1: Main Menu & Interactive Terminal Command Center</div>
+            <div class="figure-sub">Features a clean numbered interface (Options 1–10) guiding the user across all system modules.</div>
+        </div>
+
+        <h2 class="section-title">5.2 Dynamic Subject Configuration</h2>
+        <p>
+            Option 1 enables instructors to set up course subjects dynamically. The user specifies the subject count and enters the respective subject titles (e.g., <em>Java, Mathematics, DSA, Computer Networks</em>). This removes rigid hardcoded course lists, allowing the software to adapt to any semester curriculum.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_2_setup_subjects.png" alt="Dynamic Subject Configuration">
+            <div class="figure-caption">Figure 5.2: Dynamic Subject Setup and Configuration Module</div>
+            <div class="figure-sub">Demonstrates runtime registration of Java, Mathematics, and Data Structures.</div>
+        </div>
+
+        <h2 class="section-title">5.3 Student Registration & Score Validation</h2>
+        <p>
+            Option 2 registers new students. The system validates uniqueness of the Roll Number across existing records. Marks for each subject are verified to lie strictly within the range $[0.0, 100.0]$. Any violation triggers <code>InvalidMarksException</code>, prompting immediate re-entry without crashing the application.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_3_add_student.png" alt="Student Registration and Validation">
+            <div class="figure-caption">Figure 5.3: Student Registration with Range Validation and Exception Handling</div>
+            <div class="figure-sub">Demonstrates defensive validation: an invalid score of 105 is trapped and cleanly handled.</div>
+        </div>
+    </div>
+
+    <!-- CHAPTER 5: MODULE-WISE DESCRIPTION (PART 2) -->
+    <div class="report-page">
+        <h2 class="section-title">5.4 Individual Student Performance Reporting</h2>
+        <p>
+            Immediately after successful student registration, or via the individual report generator, the system displays a comprehensive grade card. It details subject-wise scores, cumulative total marks, overall percentage, letter grade, and explicitly highlights the student's highest and lowest scoring subjects.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_4_student_report.png" alt="Student Grade Card">
+            <div class="figure-caption">Figure 5.4: Formatted Student Grade Card and Subject Extremas</div>
+            <div class="figure-sub">Displays total score (255/300), 85.00% aggregate, Grade A, and identified peak/weak subjects.</div>
+        </div>
+
+        <h2 class="section-title">5.5 View All Records & Search by Roll Number</h2>
+        <p>
+            Option 3 renders a tabular ledger containing all registered students, displaying Roll Number, Name, Total, Percentage, and Grade. Option 4 provides instantaneous linear search ($O(N)$) by Roll Number to retrieve and view any student's complete record.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_5_view_search.png" alt="View All Records and Search">
+            <div class="figure-caption">Figure 5.5: Tabular Display of All Records and Roll Number Search Query</div>
+            <div class="figure-sub">Shows full roster table and instantaneous search result for Roll Number 101.</div>
+        </div>
+
+        <h2 class="section-title">5.6 Automated Student Ranking via Comparator</h2>
+        <p>
+            Option 5 invokes the merit ranking engine. The system utilizes a multi-criteria custom <code>Comparator&lt;Student&gt;</code> that sorts records primarily in descending order of aggregate percentage. In case of identical scores, an alphabetical secondary sort is executed on the student's name.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_6_ranking.png" alt="Merit Ranking Report">
+            <div class="figure-caption">Figure 5.6: Academic Merit Ranking with Java Comparator</div>
+            <div class="figure-sub">Ranks students hierarchically from Rank 1 downwards based on percentage.</div>
+        </div>
+    </div>
+
+    <!-- CHAPTER 5: MODULE-WISE DESCRIPTION (PART 3) -->
+    <div class="report-page">
+        <h2 class="section-title">5.7 Subject-Wise Statistical Analytics</h2>
+        <p>
+            Option 6 analyzes performance across each configured subject. Leveraging the Java Stream API, the system iterates over subject score collections to calculate Average Score, Maximum Score (with Topper Name), and Minimum Score (with lowest scorer name).
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_7_subject_statistics.png" alt="Subject-Wise Analytics">
+            <div class="figure-caption">Figure 5.7: Subject-Wise Performance Analytics Table</div>
+            <div class="figure-sub">Displays average, maximum, and minimum marks with student names for Java, Mathematics, and DSA.</div>
+        </div>
+
+        <h2 class="section-title">5.8 Class Performance Summary via Java Streams</h2>
+        <p>
+            Option 7 computes an aggregate executive summary for the entire class. It computes the total enrollment count, overall class average percentage, count of passing vs. failing students, class topper details, and a complete grade distribution breakdown (A+, A, B, C, D, F).
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_8_class_summary.png" alt="Class Performance Summary">
+            <div class="figure-caption">Figure 5.8: Comprehensive Class Performance & Grade Distribution Summary</div>
+            <div class="figure-sub">Provides key institutional metrics: Class Average (84.11%), 100% Pass Rate, and Grade breakdown.</div>
+        </div>
+
+        <h2 class="section-title">5.9 File Persistence & Automated Byte Backup</h2>
+        <p>
+            Options 8 and 9 handle disk storage. Option 8 uses <code>FileWriter</code> and <code>PrintWriter</code> to write records formatted with pipe delimiters (<code>|</code>) into <code>students.txt</code>. Option 9 performs low-level binary replication via <code>FileInputStream</code> and <code>FileOutputStream</code> to create <code>students_backup.txt</code>.
+        </p>
+
+        <div class="figure-box">
+            <img src="images/fig5_9_file_backup.png" alt="File Persistence and Backup">
+            <div class="figure-caption">Figure 5.9: File Persistence and Byte-Level Backup Confirmation</div>
+            <div class="figure-sub">Confirms successful writing to disk and verification of the binary backup stream.</div>
+        </div>
+    </div>
+
+    <!-- CHAPTER 6: IMPLEMENTATION DETAILS -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 6: Implementation Details</h1>
+
+        <h2 class="section-title">6.1 Mathematical Formulas & Grading Logic</h2>
+        <p>
+            The software utilizes standardized mathematical models for performance evaluation:
+        </p>
+        <div class="callout-box">
+            <p><strong>Total Marks Obtained:</strong></p>
+            <p style="text-align: center; font-size: 13pt; margin: 8px 0;">$$M_{total} = \sum_{i=1}^{k} m_i$$</p>
+            <p><strong>Aggregate Percentage:</strong></p>
+            <p style="text-align: center; font-size: 13pt; margin: 8px 0;">$$P = \left(rac{M_{total}}{k 	imes 100}ight) 	imes 100 = rac{M_{total}}{k}$$</p>
+            <p><strong>Subject Average:</strong></p>
+            <p style="text-align: center; font-size: 13pt; margin: 8px 0;">$$\mu_s = rac{1}{N}\sum_{j=1}^{N} m_{j,s}$$</p>
+        </div>
+
+        <table class="academic-table" style="margin-top: 15px;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Percentage Range</th>
+                    <th style="width: 15%;">Letter Grade</th>
+                    <th style="width: 30%;">Performance Classification</th>
+                    <th style="width: 30%;">Academic Standing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>90.0% – 100.0%</td><td><strong>A+</strong></td><td>Outstanding Academic Excellence</td><td>First Class with Distinction</td></tr>
+                <tr><td>80.0% – 89.9%</td><td><strong>A</strong></td><td>Very Good Performance</td><td>First Class</td></tr>
+                <tr><td>70.0% – 79.9%</td><td><strong>B</strong></td><td>Good Competence</td><td>Second Class Upper</td></tr>
+                <tr><td>60.0% – 69.9%</td><td><strong>C</strong></td><td>Satisfactory Performance</td><td>Second Class Lower</td></tr>
+                <tr><td>50.0% – 59.9%</td><td><strong>D</strong></td><td>Marginal / Minimum Pass</td><td>Third Class Pass</td></tr>
+                <tr><td>Below 50.0%</td><td><strong>F</strong></td><td>Unsatisfactory / Fail</td><td>Remedial Action Required</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">6.2 Core Java Source Code Highlights</h2>
+        <p><strong>1. Multi-Criteria Comparator Implementation:</strong></p>
+        <pre class="code-snippet">
+// Merit Ranking Comparator: Percentage Descending, Name Ascending
+class StudentRankComparator implements Comparator&lt;Student&gt; {
+    @Override
+    public int compare(Student s1, Student s2) {
+        int percentCompare = Double.compare(s2.calculatePercentage(), s1.calculatePercentage());
+        if (percentCompare != 0) {
+            return percentCompare;
+        }
+        return s1.getName().compareToIgnoreCase(s2.getName());
+    }
+}</pre>
+
+        <p><strong>2. Stream API Subject Analytics Implementation:</strong></p>
+        <pre class="code-snippet">
+// Subject-Wise Extremas & Average using Java Stream API
+double avg = students.stream()
+    .mapToDouble(s -> s.getMarks().getOrDefault(sub, 0.0))
+    .average()
+    .orElse(0.0);
+
+Student topStudent = students.stream()
+    .max(Comparator.comparingDouble(s -> s.getMarks().getOrDefault(sub, 0.0)))
+    .orElse(null);</pre>
+    </div>
+
+    <!-- CHAPTER 7, 8, 9, 10: TESTING, FUTURE SCOPE, CONCLUSION -->
+    <div class="report-page">
+        <h1 class="chapter-title">Chapter 7: Testing & Verification</h1>
+        <p>
+            Extensive functional, boundary, and negative test cases were conducted to ensure zero runtime exceptions during prolonged execution.
+        </p>
+
+        <table class="academic-table">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">Test ID</th>
+                    <th style="width: 25%;">Test Scenario</th>
+                    <th style="width: 30%;">Input Data / Action</th>
+                    <th style="width: 25%;">Expected Result</th>
+                    <th style="width: 10%;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>TC-01</td><td>Dynamic Subject Setup</td><td>3 subjects: "Java", "Math", "DSA"</td><td>Subject list initialized without errors</td><td>Passed</td></tr>
+                <tr><td>TC-02</td><td>Normal Registration</td><td>Roll: 101, Name: "Aman", Marks: 85, 90, 80</td><td>Student registered and grade calculated</td><td>Passed</td></tr>
+                <tr><td>TC-03</td><td>Duplicate Roll Check</td><td>Attempting to re-register Roll: 101</td><td>Error prompt displayed, duplicate rejected</td><td>Passed</td></tr>
+                <tr><td>TC-04</td><td>Negative Marks Range</td><td>Input marks = -5.0</td><td><code>InvalidMarksException</code> thrown & handled</td><td>Passed</td></tr>
+                <tr><td>TC-05</td><td>Excess Marks Range</td><td>Input marks = 105.0</td><td><code>InvalidMarksException</code> thrown & handled</td><td>Passed</td></tr>
+                <tr><td>TC-06</td><td>Comparator Tie-Breaking</td><td>Two students with identical 85.0%</td><td>Sorted alphabetically by student name</td><td>Passed</td></tr>
+                <tr><td>TC-07</td><td>File Persistence</td><td>Option 8 & 9 (Save & Backup)</td><td><code>students.txt</code> and backup created</td><td>Passed</td></tr>
+                <tr><td>TC-08</td><td>Auto-Load upon Restart</td><td>Reopen program with existing file</td><td>All previous records restored in memory</td><td>Passed</td></tr>
+            </tbody>
+        </table>
+
+        <h1 class="chapter-title" style="margin-top: 35px;">Chapter 8: Limitations and Future Scope</h1>
+        <h2 class="section-title">8.1 Current Limitations</h2>
+        <ul>
+            <li><strong>Console-Only UI:</strong> The tool relies on standard CLI text input, which lacks mouse navigation or touch support.</li>
+            <li><strong>Flat-File Storage:</strong> Plain text persistence is efficient for small-to-medium classes (~500 students) but lacks ACID transactional locking for concurrent multi-teacher write access.</li>
+        </ul>
+
+        <h2 class="section-title">8.2 Planned Future Enhancements</h2>
+        <ul>
+            <li><strong>JavaFX Graphical Dashboard:</strong> Develop a modern JavaFX desktop interface featuring bar graphs, histograms, and pie charts.</li>
+            <li><strong>Relational Database Integration:</strong> Migrate backend storage to MySQL or PostgreSQL using JDBC for multi-department scale.</li>
+            <li><strong>Automated PDF Grade Card Generator:</strong> Integrate libraries like iText or Apache PDFBox to export printable individual report cards directly.</li>
+        </ul>
+
+        <h1 class="chapter-title" style="margin-top: 35px;">Chapter 9: Conclusion</h1>
+        <p>
+            The <em>Student Performance Analytics Tool</em> successfully fulfills all proposed objectives by delivering a dependable, high-speed, and autonomous academic analysis solution. Engineered entirely with Core Java concepts—including Encapsulation, Interface Abstraction, Generic Methods, Custom Checked Exception Handling, Java Collections (<code>ArrayList</code>, <code>HashMap</code>), <code>Comparator</code> sorting, Java Stream API aggregations, Multithreading, and dual-layer File I/O—the system eliminates manual calculation errors, provides immediate statistical insights, and safely preserves academic records. It stands as an exemplary demonstration of applied software engineering for collegiate academic administration.
+        </p>
+
+        <h1 class="chapter-title" style="margin-top: 35px;">Chapter 10: References</h1>
+        <ol>
+            <li>Schildt, Herbert. <em>Java: The Complete Reference</em>. 12th Edition, McGraw-Hill Education, 2021.</li>
+            <li>Bloch, Joshua. <em>Effective Java</em>. 3rd Edition, Addison-Wesley Professional, 2018.</li>
+            <li>Oracle Corporation. <em>Java Platform, Standard Edition (Java SE 21) Documentation</em>. Oracle Technology Network, 2023.</li>
+            <li>Deitel, Paul and Harvey Deitel. <em>Java How to Program, Early Objects</em>. 11th Edition, Pearson, 2017.</li>
+            <li>Horstmann, Cay S. <em>Core Java Volume I—Fundamentals</em>. 12th Edition, Prentice Hall, 2022.</li>
+        </ol>
+    </div>
+
+</body>
+</html>

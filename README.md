@@ -127,6 +127,15 @@ When started, the tool presents an interactive console menu:
 
 ---
 
+## Project Documentation & Deliverables
+
+- 📄 **Word Project Report (.docx):** [`Student_Performance_Analytics_Report.docx`](./Student_Performance_Analytics_Report.docx) — Complete 10-chapter formal university project report formatted in accordance with Chitkara University CSE (AI/ML) guidelines, with embedded high-resolution terminal output photos and figures.
+- 🌐 **Interactive HTML Report Viewer:** [`Student_Performance_Analytics_Report.html`](./Student_Performance_Analytics_Report.html) — Printable web report with clean typography, responsive tables, code snippets, and 1-click "Print to PDF" support.
+- 📊 **PowerPoint Presentation:** [`Student_Performance_Analytics_Presentation.pptx`](./Student_Performance_Analytics_Presentation.pptx) — 15-slide viva presentation with professional academic visual layout, clean bullet points, and faculty guide details.
+- 🖼️ **Terminal Output Figures:** Located in [`images/`](./images/) covering Startup Menu, Subject Setup, Input Validation, Grade Card, View/Search, Ranking, Analytics, and File Persistence.
+
+---
+
 ## File Storage Format
 
 Data is preserved in `students.txt` using a delimited format:
