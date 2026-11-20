@@ -57,7 +57,7 @@
             padding: 0 28px;
             z-index: 1000;
             color: #FFFFFF;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
         }
 
         .controls-left {
@@ -170,7 +170,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--accent);
+            border-bottom: 3px solid var(--sky);
             flex-shrink: 0;
         }
 
@@ -238,10 +238,10 @@
             color: #FFFFFF;
             padding: 7px 14px;
             border-radius: 6px 6px 0 0;
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 700;
             margin: -16px -18px 12px -18px;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.4px;
         }
 
         .card-header-bar.navy { background: var(--navy); }
@@ -265,15 +265,19 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
         }
 
         ul.simple-list li {
             position: relative;
             padding-left: 20px;
-            font-size: 13.5px;
+            font-size: 13px;
             line-height: 1.5;
             color: var(--body-text);
+        }
+
+        ul.simple-list li strong {
+            color: var(--dark-text);
         }
 
         ul.simple-list li::before {
@@ -290,7 +294,7 @@
         table.styled-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
+            font-size: 12.5px;
         }
 
         table.styled-table th {
@@ -299,7 +303,7 @@
             text-align: left;
             padding: 9px 12px;
             font-weight: 600;
-            font-size: 12px;
+            font-size: 11.5px;
             text-transform: uppercase;
         }
 
@@ -348,7 +352,7 @@
             border-radius: 8px;
             padding: 12px 10px;
             text-align: center;
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 600;
             flex: 1;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
@@ -460,9 +464,9 @@
         <div class="slide active" id="slide-1">
             <div class="title-slide">
                 <div>
-                    <span class="badge-pill" style="margin-bottom: 12px; display: inline-block;">B.Tech CSE (AI & ML) — 3rd Semester</span>
+                    <span class="badge-pill" style="margin-bottom: 12px; display: inline-block;">B.Tech CSE (AI & ML) • 3rd Semester</span>
                     <h1>STUDENT PERFORMANCE<br>ANALYTICS TOOL</h1>
-                    <p class="subtitle">A Console-Based Core Java Application for Academic Record Management & Analysis</p>
+                    <p class="subtitle">A Terminal-Based Academic Record & Performance Evaluation System in Java</p>
                 </div>
 
                 <div class="grid-2" style="margin-top: 10px;">
@@ -473,7 +477,7 @@
                             <strong>Subject:</strong> Java Programming<br>
                             <strong>Course:</strong> B.Tech CSE (AI & ML)<br>
                             <strong>Semester:</strong> 3rd Semester<br>
-                            <strong>College:</strong> Chitkara University, Punjab<br>
+                            <strong>Institution:</strong> Chitkara University, Punjab<br>
                             <span style="color: #BAE6FD; font-size: 14px; font-weight: bold; margin-top: 6px; display: inline-block;">Faculty Guide: Rohit Sharma</span>
                         </p>
                     </div>
@@ -501,55 +505,51 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>1. Introduction</h2>
-                    <p>Overview and Core Purpose of the Student Performance Analytics Tool</p>
+                    <p>System Purpose & Core Functional Pillars</p>
                 </div>
                 <div class="slide-num-pill">02</div>
             </div>
             <div class="slide-body">
-                <div class="card" style="background: #F0F7FF; border-color: #BAE6FD; text-align: center; padding: 12px 16px;">
-                    <p style="font-size: 14px; color: var(--navy); font-weight: 500; line-height: 1.6;">
-                        Our project is a console-based <strong>Student Performance Analytics Tool</strong> developed using <strong>Core Java</strong>. It helps teachers manage student marks, calculate percentages and grades automatically, rank students, and analyze class performance with zero manual errors.
+                <div class="card" style="background: #F0F7FF; border-color: #BAE6FD; text-align: center; padding: 10px 16px;">
+                    <p style="font-size: 13.5px; color: var(--navy); font-weight: 500; line-height: 1.5;">
+                        A terminal-based Core Java application that eliminates manual grading errors, calculates instant rankings, and analyzes class performance in real time.
                     </p>
                 </div>
 
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar navy">1. STUDENT RECORD MANAGEMENT</div>
+                        <div class="card-header-bar navy">1. RECORD MANAGEMENT</div>
                         <ul class="simple-list">
-                            <li>Developed using Core Java and Object-Oriented Programming.</li>
-                            <li>Helps teachers store and manage student marks effortlessly.</li>
-                            <li>Allows setting up custom subject lists for any class or batch.</li>
-                            <li>Keeps all student records organized in memory.</li>
+                            <li><strong>Dynamic Subjects:</strong> Configure custom academic subjects dynamically.</li>
+                            <li><strong>Student Profiling:</strong> Stores unique roll numbers and student names.</li>
+                            <li><strong>Clean Collections:</strong> In-memory storage using ArrayList and HashMap.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">2. AUTOMATIC CALCULATIONS</div>
+                        <div class="card-header-bar navy">2. AUTOMATIC EVALUATION</div>
                         <ul class="simple-list">
-                            <li>Automatically calculates total marks and percentages.</li>
-                            <li>Assigns academic letter grades from A+ down to F.</li>
-                            <li>Identifies each student's highest and lowest scoring subjects.</li>
-                            <li>Eliminates human calculation mistakes completely.</li>
+                            <li><strong>Instant Math:</strong> Computes total marks & exact percentages automatically.</li>
+                            <li><strong>Grade Automation:</strong> Assigns letter grades from A+ down to F.</li>
+                            <li><strong>Score Extremes:</strong> Accurately identifies highest and lowest scoring subjects.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">3. STUDENT RANKING SYSTEM</div>
+                        <div class="card-header-bar navy">3. MERIT RANKING</div>
                         <ul class="simple-list">
-                            <li>Compares overall percentages of all students in class.</li>
-                            <li>Ranks students automatically from highest to lowest score.</li>
-                            <li>Uses Java Comparator for fair, automated sorting.</li>
-                            <li>Resolves score ties alphabetically by student name.</li>
+                            <li><strong>Objective Ranking:</strong> Evaluates entire batch by percentage descending.</li>
+                            <li><strong>Java Comparator:</strong> Automated declarative sorting mechanism.</li>
+                            <li><strong>Fair Tie-Breaker:</strong> Sorts score ties alphabetically by student name.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">4. PERFORMANCE ANALYTICS & REPORTS</div>
+                        <div class="card-header-bar navy">4. ACADEMIC ANALYTICS</div>
                         <ul class="simple-list">
-                            <li>Generates subject averages, top scores, and lowest marks.</li>
-                            <li>Provides class performance summaries and pass/fail counts.</li>
-                            <li>Displays grade distributions across the entire batch.</li>
-                            <li>Saves all student records into text files for future use.</li>
+                            <li><strong>Subject Insights:</strong> Generates averages, toppers, and lowest marks.</li>
+                            <li><strong>Class Summary:</strong> Computes pass/fail counts, average, and topper.</li>
+                            <li><strong>Permanent Storage:</strong> Saves records with automated byte-stream backups.</li>
                         </ul>
                     </div>
                 </div>
@@ -565,31 +565,31 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>2. Problem Statement</h2>
-                    <p>Challenges of Manual Management vs. Our Java Solution</p>
+                    <p>Manual Grading Bottlenecks vs. Automated Java Solution</p>
                 </div>
                 <div class="slide-num-pill">03</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card" style="border-color: #FCA5A5;">
-                        <div class="card-header-bar red">PROBLEMS WITH MANUAL MANAGEMENT</div>
+                        <div class="card-header-bar red">MANUAL EVALUATION ISSUES</div>
                         <ul class="simple-list">
-                            <li><strong>Time-Consuming:</strong> Calculating totals and percentages manually for 50+ students takes significant teacher time.</li>
-                            <li><strong>Human Errors:</strong> Manual percentage and ranking calculations often cause mistakes and grading disputes.</li>
-                            <li><strong>Difficult Subject Comparison:</strong> Comparing scores across multiple subjects on paper or spreadsheets is tedious.</li>
-                            <li><strong>Disorganized Records:</strong> Paper registers can easily be lost, damaged, or misplaced over an academic semester.</li>
-                            <li><strong>Tedious Class Reports:</strong> Preparing class averages, topper names, and pass/fail counts requires extra manual effort.</li>
+                            <li><strong>Time-Consuming:</strong> Hours spent calculating marks and percentages by hand for large classes.</li>
+                            <li><strong>Prone to Errors:</strong> Manual calculation mistakes cause ranking errors and student disputes.</li>
+                            <li><strong>Difficult Comparison:</strong> Comparing multi-subject scores on paper is confusing and slow.</li>
+                            <li><strong>Data Loss Risk:</strong> Physical paper registers can easily get damaged, lost, or misplaced.</li>
+                            <li><strong>Tedious Reporting:</strong> Generating batch averages, pass rates, and toppers takes extra manual work.</li>
                         </ul>
                     </div>
 
                     <div class="card" style="border-color: #86EFAC;">
                         <div class="card-header-bar green">OUR AUTOMATED JAVA SOLUTION</div>
                         <ul class="simple-list">
-                            <li><strong>Instant Automation:</strong> Percentages, totals, and grades are calculated immediately upon mark entry with zero errors.</li>
-                            <li><strong>100% Error-Free Ranking:</strong> Java Comparator sorts all students automatically based on percentage.</li>
-                            <li><strong>Fast Subject Analytics:</strong> Displays subject-wise averages, top scorers, and lowest scores in clean tables.</li>
-                            <li><strong>Permanent File Storage:</strong> Records are saved in <code>students.txt</code> with automatic backup in <code>students_backup.txt</code>.</li>
-                            <li><strong>Simple Menu Navigation:</strong> A user-friendly numbered menu lets teachers execute all tasks in seconds.</li>
+                            <li><strong>Instant Automation:</strong> Real-time calculation of total marks, percentages, and letter grades.</li>
+                            <li><strong>100% Accurate Ranking:</strong> Java Comparator guarantees fair, automated student sorting.</li>
+                            <li><strong>Actionable Insights:</strong> Displays subject averages, top scorers, and lowest marks in seconds.</li>
+                            <li><strong>Permanent Security:</strong> Files saved in <code>students.txt</code> with automated byte backups.</li>
+                            <li><strong>Effortless Navigation:</strong> Interactive numbered menu guides teachers step-by-step smoothly.</li>
                         </ul>
                     </div>
                 </div>
@@ -605,28 +605,40 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>3. Project Objectives</h2>
-                    <p>Core Functional Goals and Capabilities of the System</p>
+                    <p>Core System Capabilities & Deliverables</p>
                 </div>
                 <div class="slide-num-pill">04</div>
             </div>
             <div class="slide-body">
-                <div class="grid-2">
-                    <div class="card">
-                        <ul class="simple-list">
-                            <li><strong>1. Accept marks for multiple subjects:</strong> Configure and accept scores for any number of custom academic subjects dynamically.</li>
-                            <li><strong>2. Calculate percentages automatically:</strong> Compute exact percentages instantly using standard mathematical formulas.</li>
-                            <li><strong>3. Assign academic letter grades:</strong> Assign grades from A+ down to F automatically based on percentage ranges.</li>
-                            <li><strong>4. Identify subject strengths &amp; weaknesses:</strong> Detect the highest and lowest scoring subjects for each student.</li>
-                        </ul>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">01 • Dynamic Subject Setup</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Configure custom subject lists and accept marks dynamically for any class.</p>
                     </div>
 
-                    <div class="card">
-                        <ul class="simple-list">
-                            <li><strong>5. Automated student ranking:</strong> Rank students fairly from highest to lowest percentage using Java Comparator.</li>
-                            <li><strong>6. Class performance tracking:</strong> Calculate overall class averages, passing/failing rates, and identify the class topper.</li>
-                            <li><strong>7. Subject-wise statistical analysis:</strong> Generate subject statistics including class average, topper, and lowest score.</li>
-                            <li><strong>8. Persistent storage &amp; backup:</strong> Save records safely in text files and generate automated byte-stream backup copies.</li>
-                        </ul>
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">02 • Automated Percentage</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Compute exact percentages instantly with standard mathematical precision.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">03 • Standard Letter Grading</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Automatically assign academic grades from A+ to F using threshold logic.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">04 • Merit-Based Ranking</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Rank students objectively by percentage using Java Comparator sorting.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">05 • Class &amp; Subject Analytics</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Generate class averages, toppers, pass/fail rates, and subject breakdowns.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid var(--royal);">
+                        <strong style="color: var(--navy); font-size: 13.5px;">06 • File Persistence &amp; Backup</strong>
+                        <p style="font-size: 12.5px; margin-top: 4px; color: var(--body-text);">Save records permanently in text files with byte-stream disaster recovery.</p>
                     </div>
                 </div>
             </div>
@@ -641,22 +653,22 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>4. Technologies & Java Concepts Used</h2>
-                    <p>Tools and Core Java Principles Implemented in Code</p>
+                    <p>Development Stack and OOP Implementation</p>
                 </div>
                 <div class="slide-num-pill">05</div>
             </div>
             <div class="slide-body">
-                <div style="display: grid; grid-template-columns: 280px 1fr; gap: 18px; flex: 1;">
+                <div style="display: grid; grid-template-columns: 270px 1fr; gap: 18px; flex: 1;">
                     <div class="card">
-                        <div class="card-header-bar navy">DEVELOPMENT STACK</div>
-                        <ul class="simple-list" style="font-size: 13px; gap: 11px;">
-                            <li><strong>Language:</strong> Java (JDK 8+)</li>
+                        <div class="card-header-bar navy">TECH SPECIFICATIONS</div>
+                        <ul class="simple-list" style="font-size: 12.5px; gap: 10px;">
+                            <li><strong>Language:</strong> Java 8+ (Core Java)</li>
                             <li><strong>Paradigm:</strong> Object-Oriented (OOP)</li>
-                            <li><strong>Interface:</strong> Command Line / Terminal</li>
+                            <li><strong>Interface:</strong> Console / Terminal CLI</li>
                             <li><strong>Storage:</strong> Character Stream (<code>students.txt</code>)</li>
-                            <li><strong>Backup Engine:</strong> Byte Stream (<code>students_backup.txt</code>)</li>
+                            <li><strong>Backup:</strong> Byte Stream (<code>students_backup.txt</code>)</li>
                             <li><strong>IDE Used:</strong> VS Code / IntelliJ IDEA</li>
-                            <li><strong>Version Control:</strong> Git &amp; GitHub Repository</li>
+                            <li><strong>Version Control:</strong> Git &amp; GitHub</li>
                         </ul>
                     </div>
 
@@ -664,22 +676,21 @@
                         <table class="styled-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 34%;">Java Concept</th>
-                                    <th>How It Is Used in Our Project</th>
+                                    <th style="width: 35%;">Java Concept</th>
+                                    <th>How It Is Used in Code</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td><strong>Classes &amp; Objects</strong></td><td>To create and manage real-world student records.</td></tr>
-                                <tr><td><strong>Encapsulation</strong></td><td>To protect student data using private fields and public getters.</td></tr>
-                                <tr><td><strong>ArrayList</strong></td><td>To store dynamic collections of students and configured subjects.</td></tr>
-                                <tr><td><strong>HashMap</strong></td><td>To store marks of different subjects as key-value pairs.</td></tr>
-                                <tr><td><strong>Interface (Reportable)</strong></td><td>To establish a standard contract for printing report cards.</td></tr>
-                                <tr><td><strong>Custom Exception</strong></td><td><code>InvalidMarksException</code> validates marks strictly between 0 and 100.</td></tr>
-                                <tr><td><strong>Comparator</strong></td><td>To rank students according to percentage and sort ties by name.</td></tr>
-                                <tr><td><strong>Stream API</strong></td><td>To calculate class averages, pass/fail counts, and grade distributions.</td></tr>
-                                <tr><td><strong>Generics</strong></td><td>To display lists of different data types using one generic method.</td></tr>
-                                <tr><td><strong>Multithreading</strong></td><td>To run a background notification thread on record additions.</td></tr>
-                                <tr><td><strong>File Handling</strong></td><td>To save records in <code>students.txt</code> and create backup copies.</td></tr>
+                                <tr><td><strong>Classes &amp; Objects</strong></td><td>To model real-world student entities and marks.</td></tr>
+                                <tr><td><strong>Encapsulation</strong></td><td>To protect student state using private variables &amp; getters.</td></tr>
+                                <tr><td><strong>ArrayList &amp; HashMap</strong></td><td>Dynamic lists for students; Key-value marks mapping.</td></tr>
+                                <tr><td><strong>Reportable (Interface)</strong></td><td>Defines a uniform contract for printing student reports.</td></tr>
+                                <tr><td><strong>InvalidMarksException</strong></td><td>Custom exception validating marks strictly between 0–100.</td></tr>
+                                <tr><td><strong>Comparator</strong></td><td>Ranks students by percentage with alphabetical tie-breaking.</td></tr>
+                                <tr><td><strong>Stream API</strong></td><td>Calculates class average, pass/fail counts, and topper.</td></tr>
+                                <tr><td><strong>Generics</strong></td><td>Reusable <code>displayList()</code> method for printing lists.</td></tr>
+                                <tr><td><strong>Multithreading</strong></td><td>Background notice thread when new records are saved.</td></tr>
+                                <tr><td><strong>File I/O Streams</strong></td><td>Character streams for text data; Byte streams for backup.</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -703,34 +714,30 @@
             <div class="slide-body">
                 <div class="flow-container">
                     <div class="flow-row">
-                        <div class="flow-node">USER<br><small style="color: #93C5FD;">Teacher / Evaluator</small></div>
+                        <div class="flow-node">TEACHER USER<br><small style="color: #93C5FD;">Terminal Interaction</small></div>
                         <span class="flow-arrow">➔</span>
-                        <div class="flow-node">MAIN MENU<br><small style="color: #93C5FD;">Switch-Case Navigation</small></div>
+                        <div class="flow-node">MAIN MENU<br><small style="color: #93C5FD;">Switch-Case Routing</small></div>
                         <span class="flow-arrow">➔</span>
-                        <div class="flow-node">STUDENT DATA INPUT<br><small style="color: #93C5FD;">Roll, Name, Marks</small></div>
+                        <div class="flow-node">INPUT VALIDATION<br><small style="color: #93C5FD;">Duplicate &amp; 0-100 Check</small></div>
                         <span class="flow-arrow">➔</span>
-                        <div class="flow-node">STUDENT CLASS<br><small style="color: #93C5FD;">OOP Encapsulation</small></div>
+                        <div class="flow-node">STUDENT MODEL<br><small style="color: #93C5FD;">Encapsulated Object</small></div>
                     </div>
 
                     <div class="flow-row">
-                        <div class="flow-node" style="background: var(--navy);">FILE STORAGE &amp; BACKUP<br><small style="color: #93C5FD;">students.txt &amp; Backup</small></div>
+                        <div class="flow-node" style="background: var(--navy);">FILE &amp; BACKUP I/O<br><small style="color: #93C5FD;">students.txt &amp; Backup</small></div>
                         <span class="flow-arrow">🠔</span>
-                        <div class="flow-node" style="background: var(--navy);">REPORT GENERATION<br><small style="color: #93C5FD;">Reportable Interface</small></div>
+                        <div class="flow-node" style="background: var(--navy);">REPORT GENERATOR<br><small style="color: #93C5FD;">Reportable Interface</small></div>
                         <span class="flow-arrow">🠔</span>
                         <div class="flow-node" style="background: var(--navy);">RANKING &amp; ANALYTICS<br><small style="color: #93C5FD;">Comparator &amp; Streams</small></div>
                         <span class="flow-arrow">🠔</span>
-                        <div class="flow-node" style="background: var(--navy);">PERFORMANCE ENGINE<br><small style="color: #93C5FD;">Total, % &amp; Grades</small></div>
+                        <div class="flow-node" style="background: var(--navy);">CALCULATION ENGINE<br><small style="color: #93C5FD;">Totals, % &amp; Grades</small></div>
                     </div>
                 </div>
 
                 <div class="card" style="margin-top: 10px;">
-                    <div class="card-header-bar royal">HOW THE ARCHITECTURE OPERATES STEP-BY-STEP</div>
-                    <ul class="simple-list" style="font-size: 13px;">
-                        <li><strong>Navigation:</strong> The Main Menu acts as the central router connecting all functions of the application.</li>
-                        <li><strong>Input &amp; Model:</strong> Student inputs are validated and encapsulated safely inside the <code>Student</code> class.</li>
-                        <li><strong>Processing:</strong> Core algorithms calculate total marks, percentages, letter grades, rankings, and statistical metrics.</li>
-                        <li><strong>Output &amp; Storage:</strong> Formatted reports are printed on screen, and all records are saved permanently to <code>students.txt</code> with automatic backups.</li>
-                    </ul>
+                    <p style="font-size: 13px; color: var(--navy); line-height: 1.5;">
+                        <strong>Key Architectural Highlight:</strong> Modular separation of concerns. The Main Menu dispatches commands, the Student class encapsulates data safely, the Analytics engine calculates results, and File I/O ensures persistent storage with automated backup.
+                    </p>
                 </div>
             </div>
             <div class="slide-footer">
@@ -744,44 +751,46 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>6. Student Registration & Data Management</h2>
-                    <p>How Student Information is Collected, Validated, and Stored</p>
+                    <p>Data Collection, Integrity Checks, and In-Memory Storage</p>
                 </div>
                 <div class="slide-num-pill">07</div>
             </div>
             <div class="slide-body">
                 <div class="grid-3">
                     <div class="card">
-                        <div class="card-header-bar navy">1. INFORMATION ACCEPTED</div>
+                        <div class="card-header-bar navy">1. DATA INPUTS</div>
                         <ul class="simple-list">
-                            <li><strong>Roll Number:</strong> Unique integer identifier for each student.</li>
-                            <li><strong>Student Name:</strong> Non-empty string identifying the student.</li>
-                            <li><strong>Subject Names:</strong> Defined once during subject setup (e.g., Java, Math, DSA).</li>
-                            <li><strong>Subject Marks:</strong> Numerical score entered for each subject (0 to 100).</li>
+                            <li><strong>Roll Number:</strong> Unique numerical identifier.</li>
+                            <li><strong>Student Name:</strong> Validated non-empty string.</li>
+                            <li><strong>Subject Catalog:</strong> Configured dynamically once.</li>
+                            <li><strong>Marks:</strong> Numerical score per subject (0–100).</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar green">2. INPUT VALIDATION RULES</div>
+                        <div class="card-header-bar green">2. VALIDATION RULES</div>
                         <ul class="simple-list">
-                            <li><strong>Duplicate Roll Check:</strong> Scans existing records to ensure roll numbers are never repeated.</li>
-                            <li><strong>Marks Range Check (0–100):</strong> Uses custom <code>InvalidMarksException</code> to reject marks &lt; 0 or &gt; 100.</li>
-                            <li><strong>Safe Loop Handling:</strong> Keeps prompting the user until valid inputs are provided without crashing.</li>
+                            <li><strong>Duplicate Check:</strong> Scans &amp; rejects existing rolls.</li>
+                            <li><strong>Custom Exception:</strong> <code>InvalidMarksException</code> (0–100).</li>
+                            <li><strong>Safe Re-prompt:</strong> Re-prompts cleanly without crash.</li>
+                            <li><strong>Setup Gate:</strong> Enforces subjects before student entry.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar royal">3. DATA STRUCTURES USED</div>
+                        <div class="card-header-bar royal">3. JAVA COLLECTIONS</div>
                         <ul class="simple-list">
-                            <li><code>ArrayList&lt;Student&gt;</code>: Dynamically stores all student objects in memory without fixed size limits.</li>
-                            <li><code>HashMap&lt;String, Integer&gt;</code>: Stores subject names as keys and marks as values for each student.</li>
-                            <li><code>ArrayList&lt;String&gt;</code>: Holds the list of registered academic subjects.</li>
+                            <li><code>ArrayList&lt;Student&gt;</code>: Dynamic student records.</li>
+                            <li><code>HashMap&lt;String, Integer&gt;</code>: Maps subjects to marks.</li>
+                            <li><code>ArrayList&lt;String&gt;</code>: Active academic subjects.</li>
+                            <li><strong>Fast Access:</strong> Instant lookups &amp; iteration.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="card" style="background: #F8FAFC; border-left: 4px solid var(--accent); padding: 12px 16px;">
                     <p style="font-size: 13px; color: var(--navy); line-height: 1.5;">
-                        <strong>Key Explanation for Viva:</strong> "The program strictly prevents bad data. If a user enters a roll number that already exists, it warns the user immediately. If a mark is entered outside 0 to 100, <code>InvalidMarksException</code> is caught and the user is prompted again without crashing the application."
+                        <strong>Viva Takeaway:</strong> "Data integrity is strictly enforced at entry time. Invalid marks trigger <code>InvalidMarksException</code>, duplicate rolls are rejected, and marks are linked via HashMaps for optimal organization."
                     </p>
                 </div>
             </div>
@@ -796,56 +805,56 @@
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>7. Percentage & Grade Calculation</h2>
-                    <p>Formulas, Step-by-Step Example, and Academic Grading System</p>
+                    <p>Formulas, Step-by-Step Example, and Grading Scale</p>
                 </div>
                 <div class="slide-num-pill">08</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar royal">PERCENTAGE CALCULATION & EXAMPLE</div>
+                        <div class="card-header-bar royal">PERCENTAGE CALCULATION &amp; EXAMPLE</div>
                         
                         <div style="background: #F0F7FF; border: 1px solid #BAE6FD; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px;">
-                            <strong style="color: var(--navy); font-size: 12px;">MATHEMATICAL FORMULA:</strong>
-                            <p style="font-size: 13.5px; font-weight: bold; color: var(--royal); margin-top: 4px;">
+                            <strong style="color: var(--navy); font-size: 12px;">CALCULATION FORMULA:</strong>
+                            <p style="font-size: 13px; font-weight: bold; color: var(--royal); margin-top: 4px;">
                                 Percentage = (Total Marks Obtained / Maximum Total Marks) × 100
                             </p>
                         </div>
 
-                        <strong style="font-size: 12.5px; color: var(--dark-text);">PRACTICAL EXAMPLE (3 SUBJECTS):</strong>
+                        <strong style="font-size: 12.5px; color: var(--dark-text);">WORKED EXAMPLE (3 SUBJECTS):</strong>
                         <div class="terminal-box" style="margin-top: 8px;">
-Subject 1: Java Programming   = 85 / 100
-Subject 2: Mathematics        = 90 / 100
-Subject 3: Data Structures    = 75 / 100
+• Java Programming   = 85 / 100
+• Mathematics III    = 90 / 100
+• Data Structures    = 75 / 100
 --------------------------------------------
 Total Marks Obtained  = 85 + 90 + 75 = 250
 Maximum Total Marks   = 3 × 100 = 300
 Percentage = (250 / 300) × 100 = 83.33%
-Calculated Grade = A (Excellent)
+Resulting Grade = A (Excellent)
                         </div>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">OFFICIAL ACADEMIC GRADING SCALE</div>
+                        <div class="card-header-bar navy">ACADEMIC GRADING SCALE</div>
                         <table class="styled-table">
                             <thead>
                                 <tr>
                                     <th>Percentage</th>
                                     <th>Grade</th>
-                                    <th>Performance Remark</th>
+                                    <th>Performance</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>90% – 100%</td><td><strong style="color: var(--green);">A+</strong></td><td>Outstanding Performance</td></tr>
-                                <tr><td>80% – 89%</td><td><strong style="color: var(--green);">A</strong></td><td>Excellent Performance</td></tr>
-                                <tr><td>70% – 79%</td><td><strong style="color: var(--royal);">B</strong></td><td>Very Good Performance</td></tr>
-                                <tr><td>60% – 69%</td><td><strong style="color: var(--royal);">C</strong></td><td>Good Performance</td></tr>
-                                <tr><td>50% – 59%</td><td><strong style="color: var(--amber);">D</strong></td><td>Pass Performance</td></tr>
-                                <tr><td>Below 50%</td><td><strong style="color: var(--red);">F</strong></td><td>Fail / Reappear</td></tr>
+                                <tr><td>90% – 100%</td><td><strong style="color: var(--green);">A+</strong></td><td>Outstanding</td></tr>
+                                <tr><td>80% – 89%</td><td><strong style="color: var(--green);">A</strong></td><td>Excellent</td></tr>
+                                <tr><td>70% – 79%</td><td><strong style="color: var(--royal);">B</strong></td><td>Very Good</td></tr>
+                                <tr><td>60% – 69%</td><td><strong style="color: var(--royal);">C</strong></td><td>Good</td></tr>
+                                <tr><td>50% – 59%</td><td><strong style="color: var(--amber);">D</strong></td><td>Pass</td></tr>
+                                <tr><td>Below 50%</td><td><strong style="color: var(--red);">F</strong></td><td>Fail</td></tr>
                             </tbody>
                         </table>
                         <p style="font-size: 12px; color: var(--muted-text); margin-top: 10px; line-height: 1.4;">
-                            <em>Implementation Note:</em> The <code>getGrade()</code> method uses conditional <code>if-else</code> statements to automatically assign the letter grade immediately after computing percentage.
+                            <em>Implementation Note:</em> The <code>getGrade()</code> method uses conditional <code>if-else</code> branches to assign grades automatically based on percentage thresholds.
                         </p>
                     </div>
                 </div>
@@ -861,7 +870,7 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>8. Student Ranking Using Comparator</h2>
-                    <p>Automated and Fair Merit List Generation</p>
+                    <p>Automated Sorting and Tie-Breaking Logic</p>
                 </div>
                 <div class="slide-num-pill">09</div>
             </div>
@@ -870,16 +879,16 @@ Calculated Grade = A (Excellent)
                     <div class="card">
                         <div class="card-header-bar navy">HOW JAVA COMPARATOR WORKS</div>
                         <ul class="simple-list">
-                            <li><strong>Objective Ranking:</strong> Compares percentages of all students in the class.</li>
-                            <li><strong>Descending Order:</strong> Students with higher percentages receive higher ranks (Rank 1 for top scorer).</li>
-                            <li><strong>Java Comparator Interface:</strong> Uses <code>Comparator.comparingDouble(Student::getPercentage).reversed()</code>.</li>
-                            <li><strong>Name Tie-Breaker:</strong> If percentages match, names are sorted alphabetically using <code>.thenComparing(Student::getName)</code>.</li>
-                            <li><strong>Safe In-Memory Copy:</strong> Ranking sorts a cloned ArrayList so original registration order is preserved.</li>
+                            <li><strong>Objective Evaluation:</strong> Compares percentages across all students.</li>
+                            <li><strong>Descending Order:</strong> Highest percentage receives Rank 1 automatically.</li>
+                            <li><strong>Java Comparator:</strong> Chained comparator ensures clean, declarative sorting.</li>
+                            <li><strong>Tie-Breaker:</strong> When percentages match, students are sorted by name.</li>
+                            <li><strong>Non-Destructive:</strong> Sorts a cloned ArrayList, preserving original data.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar royal">SAMPLE RANKING LEADERBOARD</div>
+                        <div class="card-header-bar royal">SAMPLE MERIT LEADERBOARD</div>
                         <table class="styled-table">
                             <thead>
                                 <tr>
@@ -923,7 +932,7 @@ Calculated Grade = A (Excellent)
                             </tbody>
                         </table>
                         <p style="font-size: 12px; color: var(--navy); margin-top: 10px; font-weight: 500;">
-                            ✔ Completely eliminates manual ranking errors and saves hours of teacher calculation.
+                            ✔ Eliminates human bias and hours of manual merit compilation.
                         </p>
                     </div>
                 </div>
@@ -939,17 +948,11 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>9. Subject-Wise Statistics</h2>
-                    <p>Analyzing Subject Difficulty, Average Performance, and Top Scorers</p>
+                    <p>Subject Difficulty, Class Average, and Top Scorers</p>
                 </div>
                 <div class="slide-num-pill">10</div>
             </div>
             <div class="slide-body">
-                <div class="card" style="background: #F0F7FF; border-color: #BAE6FD; padding: 12px 16px;">
-                    <p style="font-size: 13.5px; color: var(--navy); line-height: 1.5;">
-                        Option 6 in our program analyzes every subject across all student records. It calculates the subject average, finds the highest marks scored (with the top student's name), and identifies the lowest marks scored.
-                    </p>
-                </div>
-
                 <div class="card">
                     <table class="styled-table">
                         <thead>
@@ -985,23 +988,23 @@ Calculated Grade = A (Excellent)
 
                 <div class="grid-3">
                     <div class="card">
-                        <strong style="color: var(--royal); font-size: 13px;">✔ Identify Strong Areas</strong>
+                        <strong style="color: var(--royal); font-size: 13px;">✔ Identify Strengths</strong>
                         <p style="font-size: 12px; margin-top: 6px; color: var(--body-text);">
-                            Shows subjects where class average is high, showing students understand concepts well.
+                            High average indicates topics well-mastered by the batch.
                         </p>
                     </div>
 
                     <div class="card">
-                        <strong style="color: var(--royal); font-size: 13px;">✔ Detect Difficult Subjects</strong>
+                        <strong style="color: var(--royal); font-size: 13px;">✔ Detect Difficult Areas</strong>
                         <p style="font-size: 12px; margin-top: 6px; color: var(--body-text);">
-                            Highlights subjects with lower averages so teachers can schedule remedial sessions.
+                            Lower averages alert teachers to schedule remedial sessions.
                         </p>
                     </div>
 
                     <div class="card">
                         <strong style="color: var(--royal); font-size: 13px;">✔ Recognize Top Talent</strong>
                         <p style="font-size: 12px; margin-top: 6px; color: var(--body-text);">
-                            Displays the specific student name who scored the highest in each academic subject.
+                            Celebrates individual student brilliance in specific subjects.
                         </p>
                     </div>
                 </div>
@@ -1017,21 +1020,21 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>10. Class Performance Summary</h2>
-                    <p>Batch-Level Academic Insights Powered by Java Stream API</p>
+                    <p>Batch-Level Academic Insights via Java Stream API</p>
                 </div>
                 <div class="slide-num-pill">11</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar navy">OVERALL CLASS PERFORMANCE METRICS</div>
+                        <div class="card-header-bar navy">OVERALL CLASS METRICS</div>
                         <ul class="simple-list">
-                            <li><strong>Total Students Enrolled:</strong> 5 Students in current sample batch.</li>
-                            <li><strong>Overall Class Average:</strong> 84.31% combined mean score.</li>
-                            <li><strong>Students Passed:</strong> 5 Students (100% passing rate).</li>
-                            <li><strong>Students Failed:</strong> 0 Students (grades below 50%).</li>
-                            <li><strong>Class Topper Name:</strong> Tanmay Arora (92.00%, Grade A+).</li>
-                            <li><strong>Grade Distribution Map:</strong> <code>{A+=1, A=3, B=1, C=0, D=0, F=0}</code></li>
+                            <li><strong>Total Students:</strong> 5 Students in current sample batch.</li>
+                            <li><strong>Class Average:</strong> 84.31% combined mean score.</li>
+                            <li><strong>Passed Students:</strong> 5 Students (100% passing rate).</li>
+                            <li><strong>Failed Students:</strong> 0 Students (grades below 50%).</li>
+                            <li><strong>Class Topper:</strong> Tanmay Arora (92.00%, Grade A+).</li>
+                            <li><strong>Grade Distribution:</strong> <code>{A+: 1, A: 3, B: 1}</code></li>
                         </ul>
                     </div>
 
@@ -1043,7 +1046,7 @@ Calculated Grade = A (Excellent)
                                 <code>students.stream().mapToDouble(Student::getPercentage).average()</code>
                             </li>
                             <li>
-                                <strong>Finding the Class Topper:</strong><br>
+                                <strong>Class Topper:</strong><br>
                                 <code>students.stream().max(Comparator.comparingDouble(...))</code>
                             </li>
                             <li>
@@ -1060,7 +1063,7 @@ Calculated Grade = A (Excellent)
 
                 <div class="card" style="background: #F8FAFC; border-left: 4px solid var(--accent); padding: 10px 16px;">
                     <p style="font-size: 12.5px; color: var(--navy);">
-                        <strong>Takeaway for Viva:</strong> "The Java Stream API enables us to calculate complex class statistics cleanly in just a few lines of code without writing messy nested loops."
+                        <strong>Viva Takeaway:</strong> "Stream API enables declarative data filtering and aggregation without cumbersome nested loops."
                     </p>
                 </div>
             </div>
@@ -1075,34 +1078,31 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>11. File Handling & Backup System</h2>
-                    <p>Persistent Storage Architecture and Automated Byte-Stream Backup</p>
+                    <p>Persistent Storage Architecture and Automated Disaster Recovery</p>
                 </div>
                 <div class="slide-num-pill">12</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar royal">DATA STORAGE (CHARACTER STREAMS)</div>
+                        <div class="card-header-bar royal">PRIMARY STORAGE (students.txt)</div>
                         <ul class="simple-list">
-                            <li><strong>File Used:</strong> <code>students.txt</code> for permanent records.</li>
-                            <li><strong>Saving Mechanism:</strong> Uses <code>FileWriter</code> and <code>PrintWriter</code> to write structured text lines to disk.</li>
-                            <li><strong>Loading Mechanism:</strong> Uses <code>FileReader</code> and <code>BufferedReader</code> to restore previous records upon startup.</li>
-                            <li><strong>Pipe-Delimited Storage Format:</strong><br>
-                                <code>SUBJECTS|Java|Mathematics|DSA</code><br>
-                                <code>STUDENT|101|Tanmay Arora|85|90|75</code>
-                            </li>
-                            <li><strong>Automatic Reload:</strong> Whenever the application is opened, <code>loadData()</code> parses the file and restores records into memory.</li>
+                            <li><strong>Storage Target:</strong> Permanent disk file named <code>students.txt</code>.</li>
+                            <li><strong>Saving Engine:</strong> <code>FileWriter</code> &amp; <code>PrintWriter</code> write formatted lines.</li>
+                            <li><strong>Loading Engine:</strong> <code>FileReader</code> &amp; <code>BufferedReader</code> restore records on launch.</li>
+                            <li><strong>Pipe Format:</strong> <code>SUBJECTS|...</code> &amp; <code>STUDENT|101|...</code></li>
+                            <li><strong>Persistence:</strong> Data remains available across application restarts.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">AUTOMATED BACKUP (BYTE STREAMS)</div>
+                        <div class="card-header-bar navy">BACKUP ENGINE (students_backup.txt)</div>
                         <ul class="simple-list">
-                            <li><strong>Backup File:</strong> <code>students_backup.txt</code> for disaster recovery.</li>
-                            <li><strong>Byte-Level Copy:</strong> Uses <code>FileInputStream</code> and <code>FileOutputStream</code> to read and write raw bytes.</li>
-                            <li><strong>Triggered by Option 8:</strong> Selecting Option 8 saves current data and immediately creates an exact backup clone.</li>
-                            <li><strong>Disaster Recovery:</strong> If <code>students.txt</code> is accidentally modified or deleted, the backup preserves student records.</li>
-                            <li><strong>Viva Distinction:</strong> Character streams handle human-readable text; Byte streams handle exact byte-by-byte file duplication.</li>
+                            <li><strong>Backup Target:</strong> Disaster recovery file <code>students_backup.txt</code>.</li>
+                            <li><strong>Byte Cloning:</strong> <code>FileInputStream</code> &amp; <code>FileOutputStream</code> duplicate raw bytes.</li>
+                            <li><strong>On-Demand Trigger:</strong> Activated via Menu Option 8.</li>
+                            <li><strong>Disaster Recovery:</strong> Protects data if primary file is corrupted or lost.</li>
+                            <li><strong>Viva Distinction:</strong> Character streams handle text; Byte streams copy raw binary.</li>
                         </ul>
                     </div>
                 </div>
@@ -1118,7 +1118,7 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>12. Division of Work Among Team Members</h2>
-                    <p>Individual Module Ownership and Responsibilities (Exact Sequence)</p>
+                    <p>Individual Module Ownership & Technical Contributions</p>
                 </div>
                 <div class="slide-num-pill">13</div>
             </div>
@@ -1127,23 +1127,23 @@ Calculated Grade = A (Excellent)
                     <!-- Member 1: Vishal -->
                     <div class="card">
                         <div class="card-header-bar navy">1. VISHAL — STUDENT DATA MANAGEMENT</div>
-                        <ul class="simple-list" style="font-size: 12.5px;">
-                            <li>Created the core <code>Student</code> class and private attributes.</li>
-                            <li>Implemented constructors, getters, and <code>toString()</code> methods.</li>
-                            <li>Implemented total marks and percentage calculations.</li>
-                            <li>Implemented academic grade calculation (A+ to F).</li>
-                            <li>Identified highest and lowest scoring subjects for each student.</li>
+                        <ul class="simple-list" style="font-size: 12px;">
+                            <li>Created the core <code>Student</code> class and private fields.</li>
+                            <li>Implemented constructors, accessors, and <code>toString()</code>.</li>
+                            <li>Developed total marks and percentage calculation formulas.</li>
+                            <li>Implemented academic letter grading logic (A+ to F).</li>
+                            <li>Identified highest &amp; lowest scoring subjects.</li>
                             <li>Implemented the <code>Reportable</code> interface contract.</li>
                         </ul>
                     </div>
 
                     <!-- Member 2: Jaskaran Singh -->
                     <div class="card">
-                        <div class="card-header-bar royal">2. JASKARAN SINGH — REGISTRATION &amp; RECORD MANAGEMENT</div>
-                        <ul class="simple-list" style="font-size: 12.5px;">
-                            <li>Implemented the subject configuration module (Option 1).</li>
-                            <li>Implemented the student registration workflow (Option 2).</li>
-                            <li>Accepted subject marks with validation logic.</li>
+                        <div class="card-header-bar royal">2. JASKARAN SINGH — REGISTRATION &amp; VALIDATION</div>
+                        <ul class="simple-list" style="font-size: 12px;">
+                            <li>Built dynamic subject setup module (Option 1).</li>
+                            <li>Implemented student registration workflow (Option 2).</li>
+                            <li>Accepted subject marks with range validation.</li>
                             <li>Implemented duplicate roll number prevention.</li>
                             <li>Created custom <code>InvalidMarksException</code> (0–100 check).</li>
                             <li>Implemented student search and generic <code>displayList()</code>.</li>
@@ -1152,27 +1152,27 @@ Calculated Grade = A (Excellent)
 
                     <!-- Member 3: Ansh Arora -->
                     <div class="card">
-                        <div class="card-header-bar royal">3. ANSH ARORA — PERFORMANCE ANALYSIS &amp; RANKING</div>
-                        <ul class="simple-list" style="font-size: 12.5px;">
-                            <li>Implemented student ranking using Java <code>Comparator</code> (Option 5).</li>
-                            <li>Implemented percentage sorting and alphabetical tie-breaker.</li>
+                        <div class="card-header-bar royal">3. ANSH ARORA — ANALYTICS &amp; RANKING ENGINE</div>
+                        <ul class="simple-list" style="font-size: 12px;">
+                            <li>Implemented student ranking using Java <code>Comparator</code>.</li>
+                            <li>Built percentage sorting and name tie-breaker logic.</li>
                             <li>Calculated subject-wise averages, highest, and lowest scores.</li>
-                            <li>Calculated overall class average percentage (Option 7).</li>
-                            <li>Identified the class topper and pass/fail counts.</li>
-                            <li>Generated the grade distribution map using the Stream API.</li>
+                            <li>Developed overall class average and topper detection.</li>
+                            <li>Calculated passing and failing student counts.</li>
+                            <li>Generated grade distribution map using Stream API.</li>
                         </ul>
                     </div>
 
                     <!-- Member 4: Tanmay Arora -->
                     <div class="card">
-                        <div class="card-header-bar navy">4. TANMAY ARORA — MAIN PROGRAM, FILE I/O &amp; INTEGRATION</div>
-                        <ul class="simple-list" style="font-size: 12.5px;">
-                            <li>Developed the interactive main menu and switch-case navigation.</li>
-                            <li>Integrated all individual modules into a unified working system.</li>
-                            <li>Implemented character-stream file persistence (<code>FileWriter</code> &amp; <code>PrintWriter</code>).</li>
-                            <li>Implemented automated record loading (<code>FileReader</code> &amp; <code>BufferedReader</code>).</li>
-                            <li>Created the byte-stream backup engine (<code>FileInputStream</code> &amp; <code>FileOutputStream</code>).</li>
-                            <li>Implemented background notification thread and GitHub repository.</li>
+                        <div class="card-header-bar navy">4. TANMAY ARORA — ARCHITECTURE, FILE I/O &amp; INTEGRATION</div>
+                        <ul class="simple-list" style="font-size: 12px;">
+                            <li>Designed interactive console menu and navigation.</li>
+                            <li>Integrated all individual modules into a unified tool.</li>
+                            <li>Built character-stream persistence (<code>FileWriter</code> &amp; <code>PrintWriter</code>).</li>
+                            <li>Implemented automated record loading upon startup.</li>
+                            <li>Created byte-stream backup engine (<code>FileInputStream</code> &amp; <code>FileOutputStream</code>).</li>
+                            <li>Built notification worker thread and Git repository.</li>
                         </ul>
                     </div>
                 </div>
@@ -1188,25 +1188,25 @@ Calculated Grade = A (Excellent)
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>13. Live Project Demonstration</h2>
-                    <p>Step-by-Step Terminal Execution Workflow & Sample Output Card</p>
+                    <p>Execution Sequence & Sample Terminal Report Card</p>
                 </div>
                 <div class="slide-num-pill">14</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar royal">10-STEP DEMONSTRATION WORKFLOW</div>
-                        <ol style="font-size: 12.5px; line-height: 1.65; padding-left: 20px; color: var(--body-text);">
-                            <li><strong>Step 1:</strong> Launch tool — previous records load automatically.</li>
-                            <li><strong>Step 2:</strong> Select Option 1 (Set up subjects) for the class.</li>
+                        <div class="card-header-bar royal">10-STEP EXECUTION FLOW</div>
+                        <ol style="font-size: 12px; line-height: 1.65; padding-left: 20px; color: var(--body-text);">
+                            <li><strong>Step 1:</strong> Launch tool — existing records load automatically.</li>
+                            <li><strong>Step 2:</strong> Select Option 1 to set up class subjects.</li>
                             <li><strong>Step 3:</strong> Enter subjects (e.g., Java, Mathematics, DSA).</li>
-                            <li><strong>Step 4:</strong> Select Option 2 (Add student and marks).</li>
+                            <li><strong>Step 4:</strong> Select Option 2 to register student and enter marks.</li>
                             <li><strong>Step 5:</strong> Enter unique roll number and student name.</li>
-                            <li><strong>Step 6:</strong> Enter marks for each subject (0 to 100).</li>
-                            <li><strong>Step 7:</strong> Console prints instant Student Performance Report.</li>
-                            <li><strong>Step 8:</strong> Select Option 5 to view overall student rankings.</li>
-                            <li><strong>Step 9:</strong> Select Option 6 &amp; 7 for subject statistics &amp; summary.</li>
-                            <li><strong>Step 10:</strong> Select Option 8 to save records and create backup.</li>
+                            <li><strong>Step 6:</strong> Enter marks for each subject (0 to 100 validation).</li>
+                            <li><strong>Step 7:</strong> View generated student report card instantly.</li>
+                            <li><strong>Step 8:</strong> Select Option 5 to display ranked leaderboard.</li>
+                            <li><strong>Step 9:</strong> Select Option 6 &amp; 7 for subject and class analytics.</li>
+                            <li><strong>Step 10:</strong> Select Option 8 to save records and clone backup.</li>
                         </ol>
                     </div>
 
@@ -1243,38 +1243,38 @@ Backup created as students_backup.txt
             <div class="slide-header">
                 <div class="slide-title-wrap">
                     <h2>14. Conclusion & Future Scope</h2>
-                    <p>Project Achievements, Key Takeaways, and Future Roadmap</p>
+                    <p>Project Achievements & Future Roadmap</p>
                 </div>
                 <div class="slide-num-pill">15</div>
             </div>
             <div class="slide-body">
                 <div class="grid-2">
                     <div class="card">
-                        <div class="card-header-bar royal">PROJECT CONCLUSION</div>
+                        <div class="card-header-bar royal">PROJECT TAKEAWAYS</div>
                         <ul class="simple-list">
-                            <li><strong>Simplifies Record Management:</strong> Provides a clean, automated replacement for manual paper registers.</li>
-                            <li><strong>Eliminates Human Errors:</strong> Calculates totals, percentages, and rankings automatically.</li>
-                            <li><strong>Deep Academic Insights:</strong> Shows subject difficulty and class performance through Stream API.</li>
-                            <li><strong>Permanent Data Security:</strong> Safeguards records via file persistence and byte-stream backups.</li>
-                            <li><strong>Practical OOP Mastery:</strong> Successfully integrates Core Java, Collections, Generics, and Concurrency.</li>
+                            <li><strong>Automated Efficiency:</strong> Replaces manual paper registers and tedious calculations.</li>
+                            <li><strong>Zero Calculation Error:</strong> Eliminates human mistakes in percentages and rankings.</li>
+                            <li><strong>Actionable Insights:</strong> Delivers instant subject and batch-level performance analytics.</li>
+                            <li><strong>Permanent Data Security:</strong> Safeguards records via file persistence &amp; byte backup.</li>
+                            <li><strong>Core Java Mastery:</strong> Combines OOP, Collections, Generics, Streams, and Multithreading.</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <div class="card-header-bar navy">FUTURE SCOPE &amp; ENHANCEMENTS</div>
+                        <div class="card-header-bar navy">FUTURE ROADMAP</div>
                         <ul class="simple-list">
-                            <li><strong>Graphical User Interface (GUI):</strong> Develop a desktop GUI using JavaFX or Swing.</li>
-                            <li><strong>Relational Database:</strong> Connect to MySQL or PostgreSQL using JDBC for large-scale data.</li>
-                            <li><strong>User Authentication:</strong> Add secure teacher and student login systems with distinct roles.</li>
-                            <li><strong>PDF Report Export:</strong> Generate printable, formatted student report cards in PDF format.</li>
-                            <li><strong>Graphical Charts:</strong> Display visual bar charts and pie charts for class analytics.</li>
+                            <li><strong>Graphical User Interface:</strong> Desktop GUI built with JavaFX or Swing.</li>
+                            <li><strong>Database Integration:</strong> Relational database connectivity via MySQL &amp; JDBC.</li>
+                            <li><strong>Authentication Portal:</strong> Role-based access for teachers and students.</li>
+                            <li><strong>Export Capabilities:</strong> Automated printable PDF report card generation.</li>
+                            <li><strong>Visual Performance Charts:</strong> Graphical bar and pie charts for class trends.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="card" style="background: var(--navy); border-color: var(--sky); color: #FFFFFF; text-align: center; padding: 18px 10px;">
+                <div class="card" style="background: var(--navy); border-color: var(--sky); color: #FFFFFF; text-align: center; padding: 16px 10px;">
                     <h2 style="color: #FFFFFF; font-size: 26px; font-weight: 800; letter-spacing: 1px;">THANK YOU!</h2>
-                    <p style="color: var(--sky); font-size: 14.5px; margin-top: 6px;">Any Questions? We are happy to answer!</p>
+                    <p style="color: var(--sky); font-size: 14px; margin-top: 5px;">Any Questions? We would be glad to answer.</p>
                 </div>
             </div>
             <div class="slide-footer">
